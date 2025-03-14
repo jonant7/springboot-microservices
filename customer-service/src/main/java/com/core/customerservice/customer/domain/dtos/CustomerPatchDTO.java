@@ -6,6 +6,7 @@ import com.core.customerservice.shared.domain.Status;
 import com.core.customerservice.shared.utils.TimeUtils;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,6 +14,7 @@ import java.time.LocalDate;
 
 @Getter
 @Setter(AccessLevel.PRIVATE)
+@AllArgsConstructor
 public class CustomerPatchDTO {
 
     private String password;
