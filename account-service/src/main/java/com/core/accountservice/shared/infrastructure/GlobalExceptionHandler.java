@@ -1,6 +1,7 @@
 package com.core.accountservice.shared.infrastructure;
 
 import com.core.accountservice.account.domain.exceptions.AccountAlreadyExistsException;
+import com.core.accountservice.movement.domain.exceptions.InsufficientFundsException;
 import com.core.accountservice.movement.domain.exceptions.MovementAlreadyExistsException;
 import com.core.accountservice.shared.domain.ResponseWrapper;
 import org.springframework.http.HttpStatus;
@@ -22,6 +23,13 @@ public class GlobalExceptionHandler {
     @ExceptionHandler({AccountAlreadyExistsException.class, MovementAlreadyExistsException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<ResponseWrapper<String>> handleEntityAlreadyExists(AccountAlreadyExistsException ex) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(ResponseWrapper.error(HttpStatus.BAD_REQUEST, ex.getMessage()));
+    }
+
+    @ExceptionHandler(InsufficientFundsException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseEntity<ResponseWrapper<String>> handleInsufficientFundsException(InsufficientFundsException ex) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(ResponseWrapper.error(HttpStatus.BAD_REQUEST, ex.getMessage()));
     }

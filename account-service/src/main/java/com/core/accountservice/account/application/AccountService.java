@@ -1,6 +1,6 @@
 package com.core.accountservice.account.application;
 
-import com.core.accountservice.account.domain.*;
+import com.core.accountservice.account.domain.Account;
 import com.core.accountservice.account.domain.dtos.AccountPatchDTO;
 import com.core.accountservice.account.domain.dtos.AccountPostDTO;
 import com.core.accountservice.account.domain.dtos.AccountPutDTO;
@@ -51,6 +51,10 @@ public class AccountService {
         return repository.findById(id);
     }
 
+    public Optional<Account> getByAccount(String accountNumber) {
+        return  repository.findByNumber(accountNumber);
+    }
+
     @Transactional(rollbackFor = Throwable.class)
     public Account create(AccountPostDTO dto) {
         ResponseWrapper<CustomerExistResponseDTO> responseWrapper = existCustomer(dto.getCustomerId());
@@ -65,6 +69,7 @@ public class AccountService {
                 .number(dto.getNumber())
                 .accountType(dto.getType())
                 .openingBalance(dto.getOpeningBalance())
+                .balance(dto.getOpeningBalance())
                 .status(dto.getStatus())
                 .customerId(dto.getCustomerId())
                 .build();

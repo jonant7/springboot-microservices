@@ -30,6 +30,9 @@ public class Account extends AuditableEntity {
     @Column(name = "opening_balance", nullable = false, precision = 10, scale = 2)
     private BigDecimal openingBalance;
 
+    @Column(name = "balance", nullable = false, precision = 10, scale = 2)
+    private BigDecimal balance;
+
     @Convert(converter = StatusConverter.class)
     @Column(name = "status", nullable = false)
     private Status status;
@@ -41,6 +44,7 @@ public class Account extends AuditableEntity {
         this.number = dto.getNumber();
         this.accountType = dto.getType();
         this.openingBalance = dto.getOpeningBalance();
+        this.balance = dto.getOpeningBalance();
         this.status = dto.getStatus();
     }
 

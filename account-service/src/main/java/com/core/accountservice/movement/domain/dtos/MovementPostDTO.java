@@ -7,19 +7,16 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 
 @Getter
 @Setter(AccessLevel.PRIVATE)
 public class MovementPostDTO {
 
     @NotNull
-    private LocalDate date;
-    @NotNull
     private MovementType type;
     @NotNull
     private BigDecimal value;
     @NotNull
-    private BigDecimal balance;
+    private String accountNumber;
 
 }

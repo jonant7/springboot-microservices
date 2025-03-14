@@ -32,22 +32,18 @@ public class Movement extends AuditableEntity {
     @Column(name = "balance", nullable = false, precision = 10, scale = 2)
     private BigDecimal balance;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "account_id", nullable = false, unique = true, foreignKey = @ForeignKey(name = "fk_movements_account"))
     private Account account;
 
 
     public void update(MovementPutDTO dto) {
-        this.date = dto.getDate();
         this.type = dto.getType();
         this.value = dto.getValue();
-        this.balance = dto.getBalance();
     }
 
     public void edit(MovementPatchDTO dto) {
-        this.date = dto.getDate() != null ? dto.getDate() : this.date;
         this.type = dto.getType() != null ? dto.getType() : this.type;
         this.value = dto.getValue() != null ? dto.getValue() : this.value;
-        this.balance = dto.getBalance() != null ? dto.getBalance() : this.balance;
     }
 }

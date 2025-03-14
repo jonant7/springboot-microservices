@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 public class AccountDTO extends AbstractEntityDTO {
     private final String number;
     private final String type;
-    private final BigDecimal openingBalance;
+    private final BigDecimal balance;
     private final Boolean status;
     private final Long customerId;
 
@@ -18,7 +18,7 @@ public class AccountDTO extends AbstractEntityDTO {
         super(account.getId());
         this.number = account.getNumber();
         this.type = account.getAccountType().name();
-        this.openingBalance = account.getOpeningBalance();
+        this.balance = account.getBalance();
         this.status = account.getStatus().getValue();
         this.customerId = account.getCustomerId();
     }
