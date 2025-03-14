@@ -37,6 +37,10 @@ public class MovementService {
         return repository.findById(id);
     }
 
+    public List<Movement> get(Account account, LocalDate startDate, LocalDate endDate) {
+        return repository.findAllByAccountAndDateBetween(account, startDate, endDate);
+    }
+
     @Transactional(rollbackFor = Throwable.class)
     public Movement create(MovementPostDTO dto) {
         Account account = accountRepository.findByNumber(dto.getAccountNumber())
@@ -146,4 +150,5 @@ public class MovementService {
         }
         return newBalance;
     }
+
 }
