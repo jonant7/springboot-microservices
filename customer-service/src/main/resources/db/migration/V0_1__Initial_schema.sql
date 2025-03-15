@@ -23,7 +23,7 @@ CREATE TABLE customers
     last_modified_date TIMESTAMP    NULL,
 
     password           VARCHAR(255) NOT NULL,
-    status             TINYINT(1)   NOT NULL DEFAULT 0,
+    status             TINYINT NOT NULL DEFAULT 0,
     person_id          BIGINT       NOT NULL UNIQUE,
 
     CONSTRAINT fk_customers_person FOREIGN KEY (person_id) REFERENCES persons (id) ON DELETE CASCADE
