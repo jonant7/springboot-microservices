@@ -1,0 +1,384 @@
+{
+	"info": {
+		"_postman_id": "565ca786-d840-4ce9-8fd8-ca29e10f7db2",
+		"name": "Microservices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "18239359",
+		"_collection_link": "https://warped-space-232437.postman.co/workspace/Name~bd0e0ea7-76c1-4573-a36e-c70dd6e50f90/collection/18239359-565ca786-d840-4ce9-8fd8-ca29e10f7db2?action=share&source=collection_link&creator=18239359"
+	},
+	"item": [
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "List customers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{customer_url}}/customers"
+					},
+					"response": []
+				},
+				{
+					"name": "Create customer 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\":\"Jose Lema\",\n  \"gender\":\"MALE\",\n  \"dateOfBirth\":\"01/01/1999\",\n  \"identification\":\"1798654321\",\n  \"address\":\"Otavalo sn y principal\",\n  \"phone\":\"098254785\",\n  \"password\":\"1234\",\n  \"status\":\"ACTIVE\",\n  \"accounts\": [\n    {\n        \"number\":\"478758\",\n        \"type\":\"SAVINGS\",\n        \"openingBalance\":\"200\",\n        \"status\":\"ACTIVE\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{customer_url}}/customers"
+					},
+					"response": []
+				},
+				{
+					"name": "Create customer 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\":\"Marianela Montalvo\",\n  \"gender\":\"FEMALE\",\n  \"dateOfBirth\":\"01/01/1999\",\n  \"identification\":\"1712345678\",\n  \"address\":\"Amazonas y NNUU\",\n  \"phone\":\"097548965\",\n  \"password\":\"5678\",\n  \"status\":\"ACTIVE\",\n  \"accounts\": [\n    {\n        \"number\":\"225487\",\n        \"type\":\"CHECKING\",\n        \"openingBalance\":\"100\",\n        \"status\":\"ACTIVE\"\n    },\n    {\n        \"number\":\"496825\",\n        \"type\":\"SAVINGS\",\n        \"openingBalance\":\"540\",\n        \"status\":\"ACTIVE\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{customer_url}}/customers"
+					},
+					"response": []
+				},
+				{
+					"name": "Create customer 3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\":\"Juan Osorio\",\n  \"gender\":\"MALE\",\n  \"dateOfBirth\":\"01/01/1999\",\n  \"identification\":\"1709876543\",\n  \"address\":\"13 junio y Equinoccial\",\n  \"phone\":\"098874587\",\n  \"password\":\"1245\",\n  \"status\":\"ACTIVE\",\n  \"accounts\": [\n    {\n        \"number\":\"495878\",\n        \"type\":\"SAVINGS\",\n        \"openingBalance\":\"0\",\n        \"status\":\"ACTIVE\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{customer_url}}/customers"
+					},
+					"response": []
+				},
+				{
+					"name": "Update customer 1",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\":\"Jose Lema\",\n  \"gender\":\"MALE\",\n  \"dateOfBirth\":\"01/01/2000\",\n  \"identification\":\"1798654321\",\n  \"address\":\"Otavalo sn y principal\",\n  \"phone\":\"098254785\",\n  \"password\":\"1234\",\n  \"status\":\"ACTIVE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{customer_url}}/customers/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit customer 2",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"address\":\"NNUU y Amazonas\",\n  \"phone\":\"0998877665\",\n  \"password\":\"12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{customer_url}}/customers/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete customer 3",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{customer_url}}/customers/3"
+					},
+					"response": []
+				},
+				{
+					"name": "Exist customer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{customer_url}}/customers/1/exist"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "List accounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{account_url}}/accounts"
+					},
+					"response": []
+				},
+				{
+					"name": "List accounts by customer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{account_url}}/accounts/customer/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Create checking account customer 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"number\":\"585545\",\n  \"type\":\"CHECKING\",\n  \"openingBalance\":\"1000\",\n  \"status\":\"ACTIVE\",\n  \"customerId\":\"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{account_url}}/accounts"
+					},
+					"response": []
+				},
+				{
+					"name": "Update checking account Customer 1",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"number\":\"585545\",\n  \"type\":\"CHECKING\",\n  \"openingBalance\":\"150\",\n  \"status\":\"ACTIVE\",\n  \"customerId\":\"2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{account_url}}/accounts/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit account",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\":\"INACTIVE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{account_url}}/accounts/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete account",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{account_url}}/accounts/5"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movements",
+			"item": [
+				{
+					"name": "List movements",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{account_url}}/movements"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Deposit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"type\":\"DEPOSIT\",\n  \"value\":\"500\",\n  \"accountNumber\":\"478758\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{account_url}}/movements"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Withdrawal",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"type\":\"WITHDRAWAL\",\n  \"value\":\"300\",\n  \"accountNumber\":\"478758\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{account_url}}/movements"
+					},
+					"response": []
+				},
+				{
+					"name": "Update movement",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\":\"WITHDRAWAL\",\n    \"value\":\"500\",\n    \"accountNumber\":\"478758\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{account_url}}/movements/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit movement",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"type\":\"WITHDRAWAL\",\n  \"value\":\"600\",\n  \"accountNumber\":\"478758\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{account_url}}/movements/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete movement",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{account_url}}/movements/3"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reports",
+			"item": [
+				{
+					"name": "Account Report",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{account_url}}/reports?startDate=2025-03-14&endDate=2025-04-14&customerId=1",
+							"host": [
+								"{{account_url}}"
+							],
+							"path": [
+								"reports"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2025-03-14"
+								},
+								{
+									"key": "endDate",
+									"value": "2025-04-14"
+								},
+								{
+									"key": "customerId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "customer_url",
+			"value": "http://localhost:8080",
+			"type": "default"
+		},
+		{
+			"key": "account_url",
+			"value": "http://localhost:8082",
+			"type": "string"
+		}
+	]
+}
