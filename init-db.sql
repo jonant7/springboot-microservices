@@ -1,0 +1,12 @@
+-- Crear bases de datos
+DROP DATABASE IF EXISTS customer_db;
+CREATE DATABASE customer_db CHARACTER SET UTF8MB4 COLLATE UTF8MB4_UNICODE_CI;
+
+DROP DATABASE IF EXISTS account_db;
+CREATE DATABASE account_db CHARACTER SET UTF8MB4 COLLATE UTF8MB4_UNICODE_CI;
+
+-- Crear usuario y otorgar permisos
+CREATE USER IF NOT EXISTS 'financial'@'%' IDENTIFIED BY 'financial';
+GRANT ALL PRIVILEGES ON customer_db.* TO 'financial'@'%';
+GRANT ALL PRIVILEGES ON account_db.* TO 'financial'@'%';
+FLUSH PRIVILEGES;
